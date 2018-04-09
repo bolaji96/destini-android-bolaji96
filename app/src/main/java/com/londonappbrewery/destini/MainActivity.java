@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
         // TODO: Step 5 - Wire up the 3 views from the layout to the member variables:
         mStoryTextView = findViewById(R.id.storyTextView);
         mT1Answer = findViewById(R.id.buttonTop);
@@ -29,21 +29,15 @@ public class MainActivity extends AppCompatActivity {
         mT1Answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mStoryIndex == 1) {
+                if (mStoryIndex == 1 || mStoryIndex == 2) {
                     mStoryTextView.setText(R.string.T3_Story);
                     mT1Answer.setText(R.string.T3_Ans1);
                     mT2Answer.setText(R.string.T3_Ans2);
                     mStoryIndex = 3;
-                } else if (mStoryIndex == 3) {
+                } else {
                     mStoryTextView.setText(R.string.T6_End);
                     mT1Answer.setVisibility(View.GONE);
                     mT2Answer.setVisibility(View.GONE);
-                    mStoryIndex = 2;
-                } else if (mStoryIndex == 2) {
-                    mStoryTextView.setText(R.string.T3_Story);
-                    mT1Answer.setText(R.string.T3_Ans1);
-                    mT2Answer.setText(R.string.T3_Ans2);
-                    mStoryIndex = 3;
                 }
             }
         });
@@ -63,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     mT1Answer.setVisibility(View.GONE);
                     mT2Answer.setVisibility(View.GONE);
                     mStoryIndex = 3;
-                } else if (mStoryIndex == 3) {
+                } else {
                     mStoryTextView.setText(R.string.T5_End);
                     mT1Answer.setVisibility(View.GONE);
                     mT2Answer.setVisibility(View.GONE);
